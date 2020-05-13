@@ -1,0 +1,33 @@
+{
+  "name": "news-task",
+  "version": "1.0.0",
+  "description": "React App for Aller Media task",
+  "main": "index.jsx",
+  "repository": "git@github.com:andriichern/news-task.git",
+  "author": "Andrii Chernenko",
+  "license": "MIT",
+  "scripts": {
+    "dev": "webpack-dev-server --config webpack.config.babel.js --mode development --open",
+    "lint": "esw src/**/*.jsx"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
+    "@babel/register": "^7.9.0",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
+    "eslint": "^6",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-watch": "^6.0.1",
+    "html-webpack-plugin": "^4.3.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-hot-loader": "^4.12.21",
+    "webpack": "^4.43.0",
+    "webpack-cleanup-plugin": "^0.5.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
