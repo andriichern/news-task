@@ -8,10 +8,11 @@
   "license": "MIT",
   "scripts": {
     "dev": "webpack-dev-server --config webpack.config.babel.js --mode development --open",
-    "lint": "esw src/**/*.jsx"
+    "lint": "esw src/**/*.jsx src/**/*.js"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
+    "@babel/plugin-transform-runtime": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
     "@babel/preset-react": "^7.9.4",
     "@babel/register": "^7.9.0",
@@ -31,6 +32,11 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "axios": "^0.19.2"
+    "axios": "^0.19.2",
+    "immer": "^6.0.5",
+    "prop-types": "^15.7.2",
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5",
+    "redux-saga": "^1.1.3"
   }
 }
