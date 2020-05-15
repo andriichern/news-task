@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import { articlesReducer } from './articles';
 
 const rootReducer = combineReducers({
-  articlesReducer,
+  articles: articlesReducer,
 });
 
 export default rootReducer;

@@ -1,3 +1,4 @@
+/* eslint no-undef: "off" */
 import path from 'path';
 import WebpackCleanupPlugin from 'webpack-cleanup-plugin';
 import { HotModuleReplacementPlugin } from 'webpack';
@@ -13,6 +14,10 @@ export default {
     filename: 'bundle.js',
   },
   devtool: 'eval-source-map',
+  resolve: {
+    modules: [path.join(__dirname, 'src'), 'node_modules'],
+    extensions: ['.js', '.jsx'],
+  },
   module: {
     rules: [
       {
@@ -45,6 +50,7 @@ export default {
     new HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',
+      favicon: path.join(__dirname, 'src', 'favicon.png'),
       template: path.join(__dirname, 'src', 'index.html'),
     }),
   ],

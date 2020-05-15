@@ -1,12 +1,10 @@
 import produce from 'immer';
 
-const createActions = actions => (initialState = null) =>
-  produce((draft, action) => {
-    const { type, payload } = action;
+const handleActions = actions => defaultState =>
+  produce(
+    (draft, { type, payload }) =>
+      actions[type] && actions[type](draft, payload),
+    defaultState
+  );
 
-    if (actions[type]) {
-      actions[type](draft, payload);
-    }
-  }, initialState);
-
-export default createActions;
+export default handleActions;
