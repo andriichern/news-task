@@ -27,22 +27,10 @@ export default {
           loader: 'babel-loader',
         },
       },
-      //   {
-      //     test: /\.css$/,
-      //     use: [
-      //       {
-      //         loader: "style-loader/url",
-      //         options: { sourceMap: true },
-      //       },
-      //       {
-      //         loader: "file-loader",
-      //       },
-      //     ],
-      //   },
-      //   {
-      //     test: /\.(ico)$/,
-      //     use: "file-loader?name=assets/[name].[ext]",
-      //   },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
     ],
   },
   plugins: [
