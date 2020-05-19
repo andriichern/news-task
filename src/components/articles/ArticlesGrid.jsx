@@ -1,33 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import {
-//   ImageList,
-//   ImageListItem,
-//   ImageListImage,
-//   ImageListLabel,
-//   ImageListSupporting,
-// } from '@rmwc/image-list';
-import { Grid, GridCell } from '@rmwc/grid';
-
+import { Grid } from '@rmwc/grid';
+import { trackWindowScroll } from 'react-lazy-load-image-component';
+import ArticlesGridCell from './ArticlesGridCell';
 import '@material/layout-grid/dist/mdc.layout-grid.css';
 
 const ArticlesGrid = ({ articlesData }) => {
   return (
-    <div>
-      {articlesData.map(({ columns }, rowIndex) => (
-        <Grid key={rowIndex}>
-          {columns.map(({ width, title, imageUrl }, cellIndex) => (
-            <GridCell
-              key={cellIndex}
-              span={width}
-              style={{ backgroundImage: `url(${imageUrl})` }}
-            >
-              {title}
-            </GridCell>
-          ))}
-        </Grid>
-      ))}
-    </div>
+    <Grid fixedColumnWidth>
+      {articlesData.map(({ columns }) =>
+        columns.map(({ width, title, imageUrl }, cellIndex) => (
+          <ArticlesGridCell
+            key={cellIndex}
+            cellSpan={width}
+            title={title}
+            imageUrl={imageUrl}
+          />
+        ))
+      )}
+    </Grid>
   );
 };
 
@@ -45,4 +36,4 @@ ArticlesGrid.propTypes = {
   ).isRequired,
 };
 
-export default ArticlesGrid;
+export default trackWindowScroll(ArticlesGrid);

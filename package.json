@@ -34,12 +34,16 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "@rmwc/button": "^6.0.14",
+    "@rmwc/card": "^6.0.14",
     "@rmwc/grid": "^6.0.14",
     "@rmwc/image-list": "^6.0.14",
     "@rmwc/list": "^6.0.14",
+    "@rmwc/typography": "^6.0.14",
     "axios": "^0.19.2",
     "immer": "^6.0.5",
     "prop-types": "^15.7.2",
+    "react-lazy-load-image-component": "^1.4.3",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",
