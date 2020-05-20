@@ -1,18 +1,12 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
+import clsx from 'clsx';
 import { Grid } from '@rmwc/grid';
 import { Snackbar, SnackbarAction } from '@rmwc/snackbar';
 import { trackWindowScroll } from 'react-lazy-load-image-component';
 import { updateArticle, deleteArticle } from 'store/articles';
 import ArticlesGridCell from './ArticlesGridCell';
-
-import '@rmwc/card/styles';
-import '@rmwc/grid/styles';
-import '@rmwc/button/styles';
-import '@rmwc/snackbar/styles';
-import '@rmwc/textfield/styles';
-import '@rmwc/typography/styles';
 
 const REVERT_ACTION = 'revert';
 const DISMISS_ACTION = 'dismiss';
@@ -23,9 +17,8 @@ const ArticlesGrid = ({ articlesData }) => {
   const [isNotificationShown, setIsNotificationShown] = useState(false);
 
   const handleDelete = (row, column) => {
-    console.log(row, column);
-    setToDelete({ row, column });
     setIsNotificationShown(true);
+    setToDelete({ row, column });
   };
 
   const handleSnackbarClose = ({ detail: { reason } }) => {
@@ -44,11 +37,17 @@ const ArticlesGrid = ({ articlesData }) => {
           columns.map(({ width, title, imageUrl }, columnIndex) => (
             <ArticlesGridCell
               key={title}
-              row={rowIndex}
-              column={columnIndex}
-              cellSpan={width}
               title={title}
+              row={rowIndex}
+              cellSpan={width}
               imageUrl={imageUrl}
+              column={columnIndex}
+              className={clsx({
+                hidden:
+                  toDelete &&
+                  toDelete.row === rowIndex &&
+                  toDelete.column === columnIndex,
+              })}
               onEdit={(row, column, title) =>
                 dispatch(updateArticle(row, column, title))
               }

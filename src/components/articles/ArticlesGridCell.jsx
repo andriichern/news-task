@@ -19,6 +19,7 @@ const ArticlesGridCell = ({
   cellSpan = 1,
   title = '',
   imageUrl = '',
+  className = '',
   onEdit = () => {},
   onDelete = () => {},
 }) => {
@@ -43,7 +44,7 @@ const ArticlesGridCell = ({
   };
 
   return (
-    <GridCell ref={cellRef} span={cellSpan}>
+    <GridCell ref={cellRef} span={cellSpan} className={className}>
       <Card>
         <CardPrimaryAction>
           <LazyLoadImage
@@ -89,6 +90,7 @@ ArticlesGridCell.propTypes = {
   cellSpan: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   imageUrl: PropTypes.string.isRequired,
+  className: PropTypes.string.isRequired,
   onEdit: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,
 };
