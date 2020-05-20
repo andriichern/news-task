@@ -16,12 +16,12 @@ export const putArticles = payload => ({
   payload,
 });
 
-export const updateArticle = (row, column, title = '') => ({
+export const updateArticle = ({ row = 0, column = 0, title = '' } = {}) => ({
   type: UPDATE_ARTICLE,
   payload: { row, column, title },
 });
 
-export const deleteArticle = (row, column) => ({
+export const deleteArticle = ({ row = 0, column = 0 } = {}) => ({
   type: DELETE_ARTICLE,
   payload: { row, column },
 });

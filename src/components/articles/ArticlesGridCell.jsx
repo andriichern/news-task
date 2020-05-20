@@ -1,4 +1,4 @@
-import React, { useRef, useState, useLayoutEffect } from 'react';
+import React, { useRef, useState, useLayoutEffect, memo } from 'react';
 import PropTypes from 'prop-types';
 import {
   Card,
@@ -22,7 +22,7 @@ const ArticlesGridCell = ({
   onEdit = () => {},
   onDelete = () => {},
 }) => {
-  const cellRef = useRef();
+  const cellRef = useRef(null);
   const [isEdit, setIsEdit] = useState(false);
   const [cellWidth, setCellWidth] = useState(0);
   const [cardTitle, setCardTitle] = useState(title);
@@ -39,7 +39,7 @@ const ArticlesGridCell = ({
 
   const handleSave = () => {
     setIsEdit(false);
-    onEdit(row, column, cardTitle);
+    onEdit({ row, column, title: cardTitle });
   };
 
   return (
@@ -48,7 +48,6 @@ const ArticlesGridCell = ({
         <CardPrimaryAction>
           <LazyLoadImage
             alt={`Photo for ${title}`}
-            // effect="opacity"
             src={`${imageUrl}&height=${maxImgHeight}&width=${cellWidth}`}
             width={cellWidth}
             height={maxImgHeight}
@@ -94,4 +93,4 @@ ArticlesGridCell.propTypes = {
   onDelete: PropTypes.func.isRequired,
 };
 
-export default ArticlesGridCell;
+export default memo(ArticlesGridCell);
