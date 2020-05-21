@@ -2,7 +2,7 @@ import { call, put, takeEvery } from 'redux-saga/effects';
 
 import { ArticlesApi } from 'api';
 import { FETCH_ARTICLES, putArticles } from './index';
-import { unwrapFirst } from 'utils/arrayUtils';
+import { unwrapFirst } from 'utils/array';
 
 function* fetchArticles() {
   const { data } = yield call(ArticlesApi.getArticles);

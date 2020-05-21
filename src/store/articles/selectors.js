@@ -1,4 +1,6 @@
 import { createSelector } from 'reselect';
+import { map, concat } from 'utils/array';
+import { pipe } from 'utils/fn';
 
 const articlesSelector = state => state.articles;
 
@@ -11,7 +13,8 @@ export const articleDataSelector = createSelector(
 
 export const articleTitleSelector = createSelector(articlesSelector, rows =>
   rows.reduce(
-    (result, currRow) => result.concat(currRow.columns.map(articleTitle)),
+    (result, currRow) =>
+      pipe(map(articleTitle), concat(result))(currRow.columns),
     []
   )
 );
