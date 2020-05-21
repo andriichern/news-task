@@ -1,10 +1,11 @@
 import React from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import routeMap from 'routeMap';
-import { Switch, Route } from 'react-router-dom';
 
 const Routes = () => {
   return (
     <main>
+      <Redirect from="/" to="/articles" />
       <Switch>
         {routeMap.map((route, index) => (
           <Route

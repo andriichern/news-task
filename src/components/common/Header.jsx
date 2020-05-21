@@ -6,16 +6,18 @@ import 'styles/header.scss';
 const Header = () => {
   return (
     <nav className="nav">
-      {routeMap.map((route, index) => (
-        <NavLink
-          key={index}
-          to={route.path}
-          className="nav-link"
-          activeClassName="active"
-        >
-          {route.title}
-        </NavLink>
-      ))}
+      {routeMap
+        .filter(route => route.show)
+        .map((route, index) => (
+          <NavLink
+            key={index}
+            to={route.path}
+            className="nav-link"
+            activeClassName="active"
+          >
+            {route.title}
+          </NavLink>
+        ))}
     </nav>
   );
 };

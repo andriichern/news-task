@@ -4,21 +4,24 @@ import ListPage from './components/pages/ListPage';
 
 export default [
   {
-    path: '/',
+    path: '/articles',
     exact: true,
     component: HomePage,
     title: 'Home',
+    show: false,
   },
   {
-    path: '/grid',
+    path: '/articles/grid',
     exact: false,
     component: GridPage,
     title: 'Articles Grid',
+    show: true,
   },
   {
-    path: '/list',
+    path: '/articles/list',
     exact: false,
     component: ListPage,
     title: 'Articles List',
+    show: true,
   },
 ];

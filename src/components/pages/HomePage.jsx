@@ -9,7 +9,7 @@ const HomePage = () => {
     dispatch(fetchArticles());
   }, []);
 
-  return <div>App component</div>;
+  return <h3>Select your view</h3>;
 };
 
 export default HomePage;
