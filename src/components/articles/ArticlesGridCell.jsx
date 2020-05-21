@@ -1,4 +1,4 @@
-import React, { useRef, useState, useLayoutEffect, memo } from 'react';
+import React, { useRef, useState, useEffect, memo } from 'react';
 import PropTypes from 'prop-types';
 import {
   Card,
@@ -28,15 +28,13 @@ const ArticlesGridCell = ({
   const [cellWidth, setCellWidth] = useState(0);
   const [cardTitle, setCardTitle] = useState(title);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (cellRef.current) {
       setCellWidth(cellRef.current.offsetWidth);
     }
   }, []);
 
-  const handleChange = event => {
-    setCardTitle(event.target.value);
-  };
+  const handleChange = event => setCardTitle(event.target.value);
 
   const handleSave = () => {
     setIsEdit(false);

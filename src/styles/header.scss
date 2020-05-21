@@ -1,0 +1,15 @@
+.nav {
+  display: flex;
+  align-items: center;
+  background: #e8e8e8;
+}
+
+.nav-link {
+  color: #000;
+  padding: 16px;
+  text-decoration: none;
+
+  &.active {
+    color: rgba(0, 0, 0, 0.6);
+  }
+}

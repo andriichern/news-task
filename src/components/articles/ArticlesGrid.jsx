@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
@@ -11,23 +11,38 @@ import ArticlesGridCell from './ArticlesGridCell';
 const REVERT_ACTION = 'revert';
 const DISMISS_ACTION = 'dismiss';
 
+const defaultState = {
+  showNotification: false,
+  articleToDelete: null,
+};
+
+const isHidden = (objToDelete, row, column) =>
+  objToDelete && objToDelete.row === row && objToDelete.column === column;
+
 const ArticlesGrid = ({ articlesData }) => {
   const dispatch = useDispatch();
-  const [toDelete, setToDelete] = useState({});
-  const [isNotificationShown, setIsNotificationShown] = useState(false);
+  const [state, setState] = useState(defaultState);
 
-  const handleDelete = (row, column) => {
-    setIsNotificationShown(true);
-    setToDelete({ row, column });
-  };
+  const handleDelete = useCallback((row, column) => {
+    setState({
+      showNotification: true,
+      articleToDelete: { row, column },
+    });
+  }, []);
+
+  const handleEdit = useCallback((row, column, title) => {
+    dispatch(updateArticle(row, column, title));
+  }, []);
 
   const handleSnackbarClose = ({ detail: { reason } }) => {
     if (reason === DISMISS_ACTION) {
-      dispatch(deleteArticle(toDelete));
+      dispatch(deleteArticle(state.articleToDelete));
     }
 
-    setToDelete({});
-    setIsNotificationShown(false);
+    setState({
+      showNotification: false,
+      articleToDelete: null,
+    });
   };
 
   return (
@@ -43,21 +58,16 @@ const ArticlesGrid = ({ articlesData }) => {
               imageUrl={imageUrl}
               column={columnIndex}
               className={clsx({
-                hidden:
-                  toDelete &&
-                  toDelete.row === rowIndex &&
-                  toDelete.column === columnIndex,
+                hidden: isHidden(state.articleToDelete, rowIndex, columnIndex),
               })}
-              onEdit={(row, column, title) =>
-                dispatch(updateArticle(row, column, title))
-              }
+              onEdit={handleEdit}
               onDelete={handleDelete}
             />
           ))
         )}
       </Grid>
       <Snackbar
-        open={isNotificationShown}
+        open={state.showNotification}
         onClose={handleSnackbarClose}
         message="Article deleted"
         dismissesOnAction

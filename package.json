@@ -1,7 +1,7 @@
 {
   "name": "news-task",
   "version": "1.0.0",
-  "description": "React App for Aller Media task",
+  "description": "React App for news feed tech task",
   "main": "index.jsx",
   "repository": "git@github.com:andriichern/news-task.git",
   "author": "Andrii Chernenko",
@@ -47,6 +47,7 @@
     "@rmwc/typography": "^6.0.14",
     "axios": "^0.19.2",
     "clsx": "^1.1.0",
+    "file-loader": "^6.0.0",
     "immer": "^6.0.5",
     "react-lazy-load-image-component": "^1.4.3",
     "react-redux": "^7.2.0",

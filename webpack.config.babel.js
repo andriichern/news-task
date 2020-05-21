@@ -35,6 +35,10 @@ export default {
         test: /\.s[ac]ss$/i,
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
+      {
+        test: /\.(ico)$/,
+        use: 'file-loader?name=assets/[name].[ext]',
+      },
     ],
   },
   plugins: [
@@ -42,7 +46,7 @@ export default {
     new HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      favicon: path.join(__dirname, 'src', 'favicon.png'),
+      favicon: path.join(__dirname, 'src', 'favicon.ico'),
       template: path.join(__dirname, 'src', 'index.html'),
     }),
   ],
