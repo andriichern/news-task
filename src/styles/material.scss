@@ -1,4 +1,5 @@
 @import '~@material/card/dist/mdc.card.css';
+@import '~@material/list/dist/mdc.list.css';
 @import '~@material/button/dist/mdc.button.css';
 @import '~@material/ripple/dist/mdc.ripple.css';
 @import '~@material/snackbar/dist/mdc.snackbar.css';
@@ -9,8 +10,3 @@
 @import '~@material/line-ripple/dist/mdc.line-ripple.css';
 @import '~@material/floating-label/dist/mdc.floating-label.css';
 @import '~@material/notched-outline/dist/mdc.notched-outline.css';
-@import '~@rmwc/icon/icon.css';
-
-.hidden {
-  display: none;
-}

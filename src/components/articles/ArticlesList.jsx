@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { List, ListItem } from '@rmwc/list';
-import '@material/list/dist/mdc.list.css';
-import '@material/ripple/dist/mdc.ripple.css';
 
 const ArticlesList = ({ articles }) => {
   return (
