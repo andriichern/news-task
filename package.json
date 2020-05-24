@@ -11,7 +11,8 @@
     "lint": "esw src/**/*.jsx src/**/*.js",
     "prebuild": "rimraf ./build && mkdir build",
     "build": "webpack --config webpack.prod.js",
-    "postbuild": "http-server ./build --proxy http://localhost:8080? -c-1"
+    "postbuild": "http-server ./build --proxy http://localhost:8080? -c-1",
+    "test": "riteway -r @babel/register 'src/**/*.test.js'"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
@@ -37,6 +38,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-hot-loader": "^4.12.21",
+    "riteway": "^6.1.2",
     "sass-loader": "^8.0.2",
     "style-loader": "^1.2.1",
     "webpack": "^4.43.0",

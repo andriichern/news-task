@@ -1,4 +1,4 @@
-export const unwrapFirst = arr => arr[0];
+export const unwrapFirst = arr => (arr && arr[0] ? arr[0] : null);
 
 export const map = mapper => arr => arr.map(mapper);
 
