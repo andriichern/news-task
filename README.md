@@ -21,6 +21,9 @@ The main goal is to show page with each data entry' title and image.
  - After deletion for a few seconds there should be a simple notification to user and ability to restore deleted item.
 In addition there could be another page that displays only list of all titles.
 
+There were not mentioned any requirements about responsive design so I did not do anything in that field.
+*YAGNI => Profit!* :grinning:
+
 To do that I used React, Redux, few functional methods (written by myself) and composition.
 I also used [React Material Web Components](https://github.com/jamesmfriedman/rmwc) library which is a wrapper of official
 [Material Design Components](https://github.com/material-components/material-components-web/blob/master/docs/framework-wrappers.md) in Web.
