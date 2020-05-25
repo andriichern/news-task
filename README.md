@@ -16,6 +16,7 @@ There is a set of data available in public.
 
 I need to take that data and display it in the browser.
 The main goal is to show a page with each data entry in format of its title and image. Data is provided in format of a few nested arrays.
+ - Each specific item contains its `width` property. It's based on the 12-column grid system, value is the # of columns.
  - There should be a possibility to edit each title and save it (locally only).
  - Moreover, user should be able to delete each data entry (locally only).
  - After deletion, for a few seconds there should be a simple notification to user and ability to restore deleted item.
@@ -31,7 +32,7 @@ I also used [React Material Web Components](https://github.com/jamesmfriedman/rm
 
 To run this project just install all its dependencies typing
 ```
-npm -i
+npm install
 ```
 or (preferably)
 ```
