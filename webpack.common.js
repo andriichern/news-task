@@ -9,8 +9,8 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'build'),
     publicPath: '/',
-    filename: 'app.js',
-    chunkFilename: '[name].js',
+    filename: 'app.mjs',
+    chunkFilename: '[name].mjs',
   },
   resolve: {
     modules: [path.join(__dirname, 'src'), 'node_modules'],
@@ -27,5 +27,4 @@ module.exports = {
       },
     ],
   },
-  // plugins: [new CleanWebpackPlugin({ verbose: true })],
 };
