@@ -1,4 +1,5 @@
 const path = require('path');
+const WorkerPlugin = require('worker-plugin');
 
 module.exports = {
   target: 'web',
@@ -27,4 +28,10 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new WorkerPlugin({
+      globalObject: 'self',
+      preserveTypeModule: true,
+    }),
+  ],
 };

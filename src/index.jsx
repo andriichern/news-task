@@ -1,13 +1,23 @@
 /* eslint no-undef: 'off' */
 import React from 'react';
 import { render } from 'react-dom';
+import { wrap } from 'comlink';
 import App from './components/App.jsx';
-import configuereStore from './store';
+import remoteStoreWrapper from 'store/remoteStoreWrapper';
 import 'styles/main.scss';
 
-const store = configuereStore();
+async function run() {
+  const worker = new Worker('./store/worker.js', {
+    type: 'module',
+  });
 
-render(<App store={store} />, document.getElementById('app'));
+  const remoteStore = await wrap(worker);
+  const store = await remoteStoreWrapper(remoteStore);
+
+  render(<App store={store} />, document.getElementById('app'));
+}
+
+run();
 
 if (process.env.NODE_ENV === 'development') {
   module.hot.accept();
