@@ -36,9 +36,17 @@ const ArticlesGridCell = ({
 
   const handleChange = event => setCardTitle(event.target.value);
 
+  const handleEdit = () => {
+    setIsEdit(true);
+  };
+
   const handleSave = () => {
     setIsEdit(false);
     onEdit({ row, column, title: cardTitle });
+  };
+
+  const handleDelete = () => {
+    onDelete(row, column);
   };
 
   return (
@@ -54,7 +62,7 @@ const ArticlesGridCell = ({
           {isEdit ? (
             <TextField value={cardTitle} onChange={handleChange} />
           ) : (
-            <Typography use="body1" tag="h3" style={{ padding: '0 8px' }}>
+            <Typography use="body1" tag="h3" className="card-title">
               {cardTitle}
             </Typography>
           )}
@@ -63,18 +71,14 @@ const ArticlesGridCell = ({
           {isEdit ? (
             <CardActionButton label={'Save'} outlined onClick={handleSave} />
           ) : (
-            <CardActionButton
-              label={'Edit'}
-              outlined
-              onClick={() => setIsEdit(true)}
-            />
+            <CardActionButton label={'Edit'} outlined onClick={handleEdit} />
           )}
 
           <CardActionButton
             label={'Delete'}
             danger
             raised
-            onClick={() => onDelete(row, column)}
+            onClick={handleDelete}
           />
         </CardActions>
       </Card>

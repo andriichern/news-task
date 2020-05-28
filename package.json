@@ -10,7 +10,7 @@
     "dev": "webpack-dev-server --config webpack.dev.js --mode development --open",
     "lint": "esw src/**/*.jsx src/**/*.js",
     "build": "webpack --config webpack.prod.js",
-    "postbuild": "http-server ./build --proxy http://localhost:8080? -g -b",
+    "postbuild": "http-server ./build -g -b -c-1 --proxy http://localhost:8080?",
     "test": "riteway -r @babel/register 'src/**/*.test.js'"
   },
   "devDependencies": {

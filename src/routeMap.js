@@ -1,6 +1,8 @@
-import HomePage from './components/pages/HomePage';
-import GridPage from './components/pages/GridPage';
-import ListPage from './components/pages/ListPage';
+import { lazy } from 'react';
+
+const HomePage = lazy(() => import('./components/pages/HomePage'));
+const GridPage = lazy(() => import('./components/pages/GridPage'));
+const ListPage = lazy(() => import('./components/pages/ListPage'));
 
 export default [
   {
