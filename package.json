@@ -56,7 +56,7 @@
     "@rmwc/snackbar": "^6.0.14",
     "@rmwc/textfield": "^6.1.0",
     "@rmwc/typography": "^6.0.14",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "clsx": "^1.1.0",
     "file-loader": "^6.0.0",
     "http-server": "^0.12.3",
